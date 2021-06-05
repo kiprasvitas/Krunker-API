@@ -1,0 +1,5 @@
+redis==3.5.3
+rq==1.8.1
+Flask==1.1.2
+requests==2.25.1
+undetected_chromedriver==3.0.1
