@@ -1,4 +1,7 @@
 # Krunker User Stats API
+
+## Not usable yet! No HCaptcha solver.
+
 This web application is based as an introduction to background worker processes in Heroku, which can be found at the [Heroku Devcenter](https://devcenter.heroku.com/articles/python-rq).
 This application can be easily deployed to Heroku with NO SETUP NEEDED.
 
