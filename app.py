@@ -15,14 +15,18 @@ def get_status(job):
 @app.route("/")
 def handle_job():
     query_name = request.args.get('name')
+    query_id = request.args.get('job')
     if query_name:
         job = q.enqueue(scrapeUser, query_name)
-        output = get_status(job)
-
-        while job.result == None:
-            sleep(5)
+        for i in range(0, 10):
+            return get_status(job)
+            time.sleep(10)
+    elif query_id:
+        found_job = q.fetch_job(query_id)
+        if found_job:
+            output = get_status(found_job)
         else:
-            output = get_status(job)
+            output = 'No job exists with the id number ' + query_id
     else:
         return "Please include a username :)"
     return output
