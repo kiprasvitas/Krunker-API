@@ -18,9 +18,10 @@ def handle_job():
     query_id = request.args.get('job')
     if query_name:
         job = q.enqueue(scrapeUser, query_name)
-        for i in range(0, 10):
-            return get_status(job)
-            time.sleep(10)
+        while job.result == None:
+            sleep(5)
+        else:
+            output = get_status(job)
     elif query_id:
         found_job = q.fetch_job(query_id)
         if found_job:
