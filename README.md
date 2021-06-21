@@ -37,6 +37,8 @@ Example: https://krunkerapi.herokuapp.com/?name=nameofuser
 
 The API will return all of the specified user results.
 
+**One thing to keep in mind is that the first request might return an H12 error. This is not because the process failed, but because it took too long to solve the hcaptcha the first time. After the first request, it should return the results without an error.**
+
 I've also added app.json and this readme so you can:
 
 ## Deploy to Heroku
