@@ -6,15 +6,15 @@ There used to be faster API's that would connect directly to Krunker's social we
 
 Here are the steps:
 
-Web worker recieves URL parameter 'name' from client
-Background worker runs function 'scrapeUser' with the parameter/argument
-scrapeUser starts the chromedriver
-loads the profile page in Krunker Hub
-checks for captchas
-if a captcha is found, it will navigate to hcaptcha.com and login and set the accessibility cookie (which allows it to bypass all hcaptchas automatically)
-the driver navigates back to the krunker hub, solves the captcha
-the driver scrapes all available user data (websockets can be scraped as well: view => https://github.com/ultrafunkamsterdam/undetected-chromedriver#the-version-2-expert-mode-including-devtoolwire-events)
-the function quits the drivers and returns the user data back to the client
+1. Web worker recieves URL parameter 'name' from client
+2. Background worker runs function 'scrapeUser' with the parameter/argument
+3. scrapeUser starts the chromedriver
+4. loads the profile page in Krunker Hub
+5. checks for captchas
+6. if a captcha is found, it will navigate to hcaptcha.com and login and set the accessibility cookie (which allows it to bypass all hcaptchas automatically)
+7. the driver navigates back to the krunker hub, solves the captcha
+8. the driver scrapes all available user data (websockets can be scraped as well: view => https://github.com/ultrafunkamsterdam/undetected-chromedriver#the-version-2-expert-mode-including-devtoolwire-events)
+9. the function quits the drivers and returns the user data back to the client
 
 ## How to Setup
 The only way this API was possible was with the help of [Hcaptcha's Accessibility Cookie](https://www.hcaptcha.com/accessibility) which allows the driver to automatically bypass the hcaptcha for each API request.
