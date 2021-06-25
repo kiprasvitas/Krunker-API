@@ -1,6 +1,25 @@
 # Krunker User Stats API
 This web application is based as an introduction to background worker processes in Heroku, which can be found at the [Heroku Devcenter](https://devcenter.heroku.com/articles/python-rq).
 
+## Examples:
+Python:
+```python
+import requests
+
+name = "FrostyWolfTTV"
+
+def getUserData(name):
+	r = requests.get("https://krunkerapi.herokuapp.com/?name={}".format(name))
+
+	if "LVL" not in r.text:
+		print("Gateway Timeout...")
+		print(r.text)
+	else:
+		print(r.text)
+
+getUserData(name)
+```
+
 ## How it works:
 There used to be faster API's that would connect directly to Krunker's social websockets, including repositories like this: https://github.com/fasetto/krunker.io, however, Krunker soon found out about this and decided to not only add extreme cors policies to their websockets, but also armed their websockets and websites with hcaptchas. That is why, this API, though extremely slow, works differently then most. This API runs [Undetectable Chromedriver](https://github.com/ultrafunkamsterdam/undetected-chromedriver), which is the only Chromium based undetectable selenium chromedriver that is able to load Krunker's Hub page.
 
