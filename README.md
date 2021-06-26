@@ -5,17 +5,27 @@ This web application is based as an introduction to background worker processes 
 Python:
 ```python
 import requests
+import json
 
 name = "FrostyWolfTTV"
 
 def getUserData(name):
+
+	# Create request to the API
 	r = requests.get("https://krunkerapi.herokuapp.com/?name={}".format(name))
 
+	# Check if the response has the value LVL in it
 	if "LVL" not in r.text:
+		# If you get a gateway timeout, please wait around a minute before trying again
 		print("Gateway Timeout...")
 		print(r.text)
 	else:
 		print(r.text)
+
+	data = json.loads(r.text)
+
+	# Example of getting specific data from json
+	print(data['LVL'])
 
 getUserData(name)
 ```
