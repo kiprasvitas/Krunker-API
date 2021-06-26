@@ -29,6 +29,7 @@ def getUserData(name):
 
 getUserData(name)
 ```
+**If you don't want to get gateway timeout errors, I would suggest cloning the project and importing the utils.py file scrapeUser function into your python file so it can executed locally**
 
 ## How it works:
 There used to be faster API's that would connect directly to Krunker's social websockets, including repositories like this: https://github.com/fasetto/krunker.io, however, Krunker soon found out about this and decided to not only add extreme cors policies to their websockets, but also armed their websockets and websites with hcaptchas. That is why, this API, though extremely slow, works differently then most. This API runs [Undetectable Chromedriver](https://github.com/ultrafunkamsterdam/undetected-chromedriver), which is the only Chromium based undetectable selenium chromedriver that is able to load Krunker's Hub page.
