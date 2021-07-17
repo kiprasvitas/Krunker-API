@@ -25,7 +25,7 @@ def getUserData(name):
 	data = json.loads(r.text)
 
 	# Example of getting specific data from json
-	print(data['LVL'])
+	print(data['lvl'])
 
 getUserData(name)
 ```
@@ -51,7 +51,7 @@ The only way this API was possible was with the help of [Hcaptcha's Accessibilit
 
 If you want to host the API for yourself, you must signup for Hcaptcha's accessibility program with a valid password and username at: https://dashboard.hcaptcha.com/signup?type=accessibility
 
-Once, you have a valid username and password, please go to the utils.py file and replace the username and password variables at the top of the scrapeUser function.
+Once, you have a valid username and password, please go to your Heroku dashboard and configure two new config variables named 'EMAIL' and 'PASS'. Their values should be your email and password for Hcaptcha accessibility.
 
 After that, you're all set up and you can launch the API to Heroku or any other platform of your choosing.
 
